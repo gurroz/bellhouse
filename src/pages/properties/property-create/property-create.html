@@ -1,0 +1,128 @@
+<!--
+  Generated template for the PropertyCreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar propiedad</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-stepper #stepper [mode]="'horizontal'" (selectIndexChange)="selectChange($event)">
+    <ion-step label="Oferta" description="Step1 description">
+
+      <ion-toolbar>
+        <ion-segment [(ngModel)]="icons" color="secondary">
+          <ion-segment-button value="camera">
+            <ion-icon name="camera"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="bookmark">
+            <ion-icon name="bookmark"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+
+
+        <ion-item>
+          <ion-label>Tipo de propiedad</ion-label>
+          <ion-select [(ngModel)]="propertyType">
+            <ion-option value="casa">Casa</ion-option>
+            <ion-option value="departamento">Departamento</ion-option>
+            <ion-option value="oficina">Oficina</ion-option>
+          </ion-select>
+        </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo de propiedad</ion-label>
+        <ion-select [(ngModel)]="propertyType">
+          <ion-option value="casa">UF</ion-option>
+          <ion-option value="departamento">CLP</ion-option>
+          <ion-option value="oficina">USD</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo de propiedad</ion-label>
+        <ion-select [(ngModel)]="propertyType">
+          <ion-option value="casa">UF</ion-option>
+          <ion-option value="departamento">CLP</ion-option>
+          <ion-option value="oficina">USD</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <button ion-button small ionicStepperNext>Continuar</button>
+    </ion-step>
+
+    <ion-step label="Propiedad" description="Step1 description">
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <button ion-button [color]="isDanger ? 'danger' : 'primary'" [outline]="isOutline">
+        -
+      </button>
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <button ion-button [color]="isDanger ? 'danger' : 'primary'" [outline]="isOutline">
+        +
+      </button>
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" floating>Floating Label</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+      <ion-list radio-group [(ngModel)]="relationship">
+        <ion-item>
+          <ion-label>Friends</ion-label>
+          <ion-radio value="friends" checked></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <ion-list radio-group [(ngModel)]="relationship">
+        <ion-item>
+          <ion-label>Friends</ion-label>
+          <ion-radio value="friends" checked></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <button ion-button color="light" small ionicStepperPrevious>Continuar</button>
+    </ion-step>
+
+    <ion-step label="Extras" description="Step1 description">
+
+      <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+
+      <button ion-button color="light" small ionicStepperPrevious>Finalizar</button>
+    </ion-step>
+  </ion-stepper>
+
+</ion-content>
