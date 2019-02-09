@@ -1,0 +1,160 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+#  Bellhouse
+
+Api REST para servicios de BellhouseApp
+
+## Propiedades [/properties]
+
+### Crea nueva propiedad [POST]
+
++ Request (application/json)
+
+        {
+            "oferta": {
+                "type": "SALE",
+                "value": 12331,
+                "currency": "CLP",
+                "extra_cost": 1233,
+                "extra_cost_currency": "CLP"
+            },
+            "propiedad": {
+                "type": "HOUSE",
+                "address": "Av 24 de mayo 123",
+                "zone": 12331,
+                "city": 12331,
+                "country": 12331,
+                "coordinates": "33.5454,70.345",
+                "bedrooms": 2,
+                "bathrooms": 4,
+                "total_m2": 60,
+                "util_m2": 55,
+                "services": true,
+                "furnished": false
+            },
+            "extras":[
+                { 
+                    "type": "KITCHEN",
+                    "values": ["PORCELAIN", "DOUBLE_SINK"]
+                },
+                { 
+                    "type": "NEAR",
+                    "values": ["PARK", "HOSPITAL"]
+                }
+            ]
+        }
+
+
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "msg": "Property added correctly"
+            }
+            
+
++ Response 500 (application/json)
+
+    + Body
+
+            {
+                "msg": "Error while updating Property"
+            }
+
+
+### List All Questions [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 2048
+                    }, {
+                        "choice": "Python",
+                        "votes": 1024
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 512
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 256
+                    }
+                ]
+            }
+        ]
+  
+      
+## Propiedad [/properties/{id}]
+
+### Editar propiedad [PUT]
+
++ Request (application/json)
+
+        {
+            "id": 1233,
+            "status": "SOLD",
+            "oferta": {
+                "type": "SALE",
+                "value": 12331,
+                "currency": "CLP",
+                "extra_cost": 1233,
+                "extra_cost_currency": "CLP"
+            },
+            "propiedad": {
+                "type": "HOUSE",
+                "address": "Av 24 de mayo 123",
+                "zone": 12331,
+                "city": 12331,
+                "country": 12331,
+                "coordinates": "33.5454,70.345",
+                "bedrooms": 2,
+                "bathrooms": 4,
+                "total_m2": 60,
+                "util_m2": 55,
+                "services": true,
+                "furnished": false
+            },
+            "extras":[
+                { 
+                    "type": "KITCHEN",
+                    "values": ["PORCELAIN", "DOUBLE_SINK"]
+                },
+                { 
+                    "type": "NEAR",
+                    "values": ["PARK", "HOSPITAL"]
+                }
+            ]
+        }
+
+
++ Response 202 (application/json)
+
+    + Body
+
+            {
+                "msg": "Property edited correctly"
+            }
+
++ Response 400 (application/json)
+
+    + Body
+
+            {
+                "msg": "Property does not exist"
+            }
+
++ Response 500 (application/json)
+
+    + Body
+
+            {
+                "msg": "Error while updating Property"
+            }
